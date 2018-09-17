@@ -1,10 +1,17 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+     <v-app>
+        <v-toolbar>
+          <v-toolbar-title>Nem Library Listner Vue Sample</v-toolbar-title>
+        </v-toolbar>
+        <main>
+          <v-flex xs12 sm10 offset-sm1>
+            <v-container fluid>
+                <router-view></router-view>
+            </v-container>
+          </v-flex>
+        </main>
+      </v-app>
   </div>
 </template>
 
@@ -13,7 +20,6 @@
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 #nav {
