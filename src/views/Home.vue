@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div v-if="startedListner == false">
-      <h2>着金の監視</h2>
+      <h2>トランザクションの監視</h2>
       <v-text-field 
         label="アドレス"
         v-model="address"
@@ -10,22 +10,22 @@
         placeholder="例. NBHWRG6STRXL2FGLEEB2UOUCBAQ27OSGDTO44UFC"
       ></v-text-field>
       <v-flex>
-        <v-btn color="blue" class="white-text" @click="startListner()">着金の監視を開始する</v-btn>
+        <v-btn color="blue" class="white-text" @click="startListner()">トランザクションの監視を開始する</v-btn>
       </v-flex>
     </div>
     <div v-else>
-      <h2 class="mb-2">着金情報</h2>
+      <h2 class="mb-2">トランザクション情報</h2>
       <div v-if="message != ''">
         <v-alert
           :value="true"
           type="info"
         >
-          <p>着金しました！</p>
+          <p>トランザクションが発行されました！</p>
           <p>{{message}}</p>
         </v-alert>
       </div>
       <div v-else>
-        <p>着金監視中...</p>
+        <p>トランザクション監視中...</p>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@ import { Address, ConfirmedTransactionListener } from 'nem-library';
 export default class Home extends Vue {
   private address: string = '';
   private startedListner: boolean = false;
-  private message: string = '';
+  private message: any = '';
  
   private async startListner() {
     const confirmedTransactionListener = new ConfirmedTransactionListener([
